@@ -35,50 +35,30 @@ var assets = {
 
 }
 var platforms = [
-    //left side
-    [64, c.height - 140, 5],
-    //right side
-    [c.width - (5 * 32) - 64, c.height - 140, 4],
     //Center
-    [c.width / 2 - (6 * 16), c.height - 180, 5],
+    [c.width/2-2.5*32,c.height-160-30,5,c.width/2+2.5*32],
+    [c.width/2-4*32,c.height-260-30,8,c.width/2+4*32],
+    [c.width/2-5*32,c.height-360-30,10,c.width/2+5*32],
+    [c.width/2-6*32,c.height-460-30,12,c.width/2+6*32],
+    [c.width/3-2*32,c.height-560-30,4,c.width/3+2*32],
+    [c.width/3+10*32,c.height-560-30,4,c.width/3+14*32],
 
-    //left side
-    [c.width / 3 - (6 * 32), c.height - 220, 5],
-    //right side
-    [64 * 2 + 2 * (c.width / 3) - 4 * 32, c.height - 220, 5],
-    //Center
-    [c.width / 2 - (9 * 16), c.height - 300, 8],
+    //left
+    [64,c.height-145,10,64+10*32],
+    [64,c.height-245 - 17,8,8+10*32],
+    [64,c.height-345-17,5,64+5*32],
+    [64,c.height-445-17,4,64+4*32],
+    [64,c.height-545-17,3,64+3*32],
+    [64,c.height-645-17,2,64+2*32],
 
-    //left side
-    [64, c.height - 300, 3],
-    //right side
-    [c.width - (4 * 32) - 64, c.height - 300, 3],
+    //right
+    [c.width-10*32-64,c.height-145,9,c.width-64-32],
+    [c.width-64-8*32,c.height-245 ,7,c.width-64-32],
+    [c.width-64-5*32,c.height-345,4,c.width-64-32],
+    [c.width-64-4*32,c.height-445,3,c.width-64-32],
+    [c.width-64-3*32,c.height-545,2,c.width-64-32],
+    [c.width-64-2*32,c.height-645,1,c.width-64-32],
 
-    //left side
-    [64 + c.width / 3 - (6 * 32), c.height - 360, 3],
-    //right side
-    [2 * (c.width / 3), c.height - 360, 3],
-
-    //left side
-    [64 + 32, c.height - 410, 1],
-    //right side
-    [c.width - 64 - 32 * 3, c.height - 410, 1],
-
-    //center
-    [c.width / 2 - (20 * 16), c.height - 460, 19],
-
-    //left side
-    [64, c.height - 500, 3],
-    //right side
-    [c.width - (4 * 32) - 64, c.height - 500, 3],
-
-    //Center
-    [c.width / 2 - (6 * 16), c.height - 620, 5],
-
-    //left side
-    [c.width / 3 - (6 * 32), c.height - 560, 5],
-    //right side
-    [64 * 2 + 2 * (c.width / 3) - 4 * 32, c.height - 560, 5],
 
 
 ]

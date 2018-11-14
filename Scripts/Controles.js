@@ -28,7 +28,7 @@ addEventListener('keydown', function (e) {
     function stopJump(){
             JUMP=false
            }
-           /*se la llama a los 10 segundos*/
+           /*se la llama a los 0.1 segundos*/
            setTimeout(stopJump,100);}
 })
 addEventListener('keyup', function (e) {
