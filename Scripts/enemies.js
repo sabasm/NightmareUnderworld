@@ -1,4 +1,6 @@
 function Enemy(x, y, tipo) {
+  this.JUMP = false
+  this.inAir = false
   this.tipo = tipo || 0
   switch (this.tipo) {
     case 0:
@@ -31,12 +33,13 @@ function Enemy(x, y, tipo) {
       this.speed = 1.1
       break;
     default:
-    this.image = new Image()
-    this.image.src = assets.tipo0
-    this.health = 45
-    this.attack = Math.floor(Math.random() * 5) + 9
-    this.speed = 2
+      this.image = new Image()
+      this.image.src = assets.tipo0
+      this.health = 45
+      this.attack = Math.floor(Math.random() * 5) + 9
+      this.speed = 2
   }
+
   this.x = x || 65
   this.y = y || 65
   this.width = 32
@@ -47,17 +50,21 @@ function Enemy(x, y, tipo) {
 
   this.draw = function () {
     this.canvasBounds()
-    if (char1.x>this.x)this.x += this.speed
-    if (char1.x<this.x)this.x += this.speed*-1
-    this.y += 5
-
-    ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
     this.platformBounds()
-  }.bind(this)
+    this.y += 5
+    if (char1.x > this.x) this.x += this.speed
+    if (char1.x < this.x) this.x += this.speed * -1
+    if (char1.y <= this.y && char1.y+32 >= this.y+32 &&this.inAir === false && this.JUMP === false) {
+      this.y -= 3;
+    }
+    if (char1.y <= this.y && char1.y+32 >= this.y+32 &&this.inAir === false && this.JUMP === false) {
+      this.enemyJump()
+    }
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+  }
   this.canvasBounds = () => {
     if (this.y + this.height >= c.height - 64) {
       this.y = c.height - this.height - 64
-      inAir = false
     }
     if (this.y >= c.height - 64) {
       this.y = c.height - 64
@@ -82,6 +89,4 @@ function Enemy(x, y, tipo) {
         this.y = platforms[plat][1] - 32
     }
   }
-
-
 }
