@@ -83,7 +83,9 @@ function Enemy(x, y, tipo) {
       if (this.x > platforms[plat][0] - 32 && this.x < platforms[plat][3] + 32 &&
         this.y > platforms[plat][1] - 32 && this.y < platforms[plat][1] - 16)
         this.y = platforms[plat][1] - 32
-      this.jumpE = false
+        if (this.y === platforms[plat][1] - 32){
+          this.jumpE=false
+        }
     }
   }
   this.enemyAI = function () {
@@ -97,12 +99,12 @@ function Enemy(x, y, tipo) {
     }
     //Jump to upper platform
     console.log(this.inAirE + " " + this.jumpE)
-    if (char1.y + 100 < this.y && this.inAirE === false && this.jumpE === false) {
+    if (char1.y + char1.height+32 < this.y && this.inAirE === false && this.jumpE === false) {
       
-      timer = setInterval(() => {
-        this.y -= 20
-        this.inAirE=true
-      },5000)
+      timer = setTimeout(() => {
+        this.y -= 12
+        this.jumpE=true
+      },250)
       this.y += 5
     }
   }

@@ -41,7 +41,7 @@ var assets = {
 }
 var platforms = [
     //Center
-    [c.width/2-2.5*32,c.height-160-30,5,c.width/2+2.5*32],
+    [c.width/2-2.5*32,c.height-160-25,5,c.width/2+2.5*32],
     [c.width/2-4*32,c.height-260-30,8,c.width/2+4*32],
     [c.width/2-5*32,c.height-360-30,10,c.width/2+5*32],
     [c.width/2-6*32,c.height-460-30,12,c.width/2+6*32],
