@@ -1,6 +1,7 @@
 function Enemy(x, y, tipo) {
-  this.JUMP = false
-  this.inAir = false
+  this.jumpE = false
+  this.inAirE = false
+  var timer
   this.tipo = tipo || 0
   switch (this.tipo) {
     case 0:
@@ -52,19 +53,14 @@ function Enemy(x, y, tipo) {
     this.canvasBounds()
     this.platformBounds()
     this.y += 5
-    if (char1.x > this.x) this.x += this.speed
-    if (char1.x < this.x) this.x += this.speed * -1
-    if (char1.y <= this.y && char1.y+32 >= this.y+32 &&this.inAir === false && this.JUMP === false) {
-      this.y -= 3;
-    }
-    if (char1.y <= this.y && char1.y+32 >= this.y+32 &&this.inAir === false && this.JUMP === false) {
-      this.enemyJump()
-    }
+    this.enemyAI()
+
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
   }
   this.canvasBounds = () => {
     if (this.y + this.height >= c.height - 64) {
       this.y = c.height - this.height - 64
+      this.jumpE = false
     }
     if (this.y >= c.height - 64) {
       this.y = c.height - 64
@@ -87,6 +83,27 @@ function Enemy(x, y, tipo) {
       if (this.x > platforms[plat][0] - 32 && this.x < platforms[plat][3] + 32 &&
         this.y > platforms[plat][1] - 32 && this.y < platforms[plat][1] - 16)
         this.y = platforms[plat][1] - 32
+      this.jumpE = false
+    }
+  }
+  this.enemyAI = function () {
+    //follow Left
+    if (char1.x > this.x) this.x += this.speed
+    //follow Right
+    if (char1.x < this.x) this.x += this.speed * -1
+    //Stand Up when in same Level
+    if (char1.y <= this.y && char1.y + 32 >= this.y + 32 && this.inAirE === false && this.jumpE === false) {
+      this.y -= 3;
+    }
+    //Jump to upper platform
+    console.log(this.inAirE + " " + this.jumpE)
+    if (char1.y + 100 < this.y && this.inAirE === false && this.jumpE === false) {
+      
+      timer = setInterval(() => {
+        this.y -= 20
+        this.inAirE=true
+      },5000)
+      this.y += 5
     }
   }
 }

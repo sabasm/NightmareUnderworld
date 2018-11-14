@@ -25,7 +25,7 @@ addEventListener('keydown', function (e) {
     if (e.keyCode === 32 && inAir===false && JUMP===false){
         JUMP = true
         inAir=true
-        setTimeout(stopJump,50)
+        setTimeout(stopJump,55)
 
            /*se la llama a los 0.1 segundos*/
            }
