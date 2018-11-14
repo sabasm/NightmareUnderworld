@@ -22,21 +22,24 @@ addEventListener('keydown', function (e) {
         LEFT = true
     if (e.keyCode === 68)
         RIGHT = true
-    if (e.keyCode === 32 && inAir===false){
+    if (e.keyCode === 32 && inAir===false && JUMP===false){
         JUMP = true
         inAir=true
-        setTimeout(stopJump,40)
-    function stopJump(){
-            JUMP=true
-           }
+        setTimeout(stopJump,50)
+
            /*se la llama a los 0.1 segundos*/
            }
-})
+    })
+    function stopJump(){
+        
+        
+        JUMP=false
+
+       }
 addEventListener('keyup', function (e) {
     if (e.keyCode === 65)
         LEFT = false
     if (e.keyCode === 68)
         RIGHT = false
-    if (e.keyCode === 32)
-        JUMP = false
+    if (e.keyCode === 32){}
 })
