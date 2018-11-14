@@ -17,6 +17,11 @@ var assets = {
     char1: "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0011_char1.png?alt=media&token=4053b45a-700f-4de2-b156-37b965695ed5",
     char2: "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0011_char1.png?alt=media&token=4053b45a-700f-4de2-b156-37b965695ed5",
 
+    //enemies
+    tipo0:"https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0005_enemy0.png?alt=media&token=fcb365f6-1def-401a-9d2c-fa5fac6c98b5",
+    tipo1:"https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0004_enemy1.png?alt=media&token=e08f8bef-57f5-43c7-9aea-db8a2676e5f7",
+    tipo2:"https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0003_enemy2.png?alt=media&token=582527f6-edb9-41d3-b6e5-36296da6aa1d",
+    tipo3:"https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0002_enemy3.png?alt=media&token=11b56069-07ba-418d-806b-8a2a8f092581",
     //resources
     ammo: "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0000_bullets.png?alt=media&token=7ed6417d-f9f6-46b7-be01-5e955f336de4",
     meds: "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0001_meds.png?alt=media&token=82ae1edb-d89d-4b4a-a43e-fac256fd84cb",
@@ -68,6 +73,10 @@ var meds = new Resources(128, 128)
 var ammo = new Resources(256, 128)
 var gun = new wepon(324, 128)
 var level = new Board()
+var enemy0 = new Enemy(256,256,0)
+var enemy1 = new Enemy(256,256,1)
+var enemy2 = new Enemy(256,256,2)
+var enemy3 = new Enemy(256,256,3)
 
 //main functions
 function start() {
@@ -84,6 +93,10 @@ function update() {
     level.draw();
     platformsGenerator()
     char1.draw()
+    enemy1.draw()
+    enemy2.draw()
+    enemy3.draw()
+    enemy0.draw()
     ammo.draw()
     meds.draw()
     gun.draw()
