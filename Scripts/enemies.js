@@ -98,7 +98,6 @@ function Enemy(x, y, tipo) {
       this.y -= 3;
     }
     //Jump to upper platform
-    console.log(this.inAirE + " " + this.jumpE)
     if (char1.y + char1.height+32 < this.y && this.inAirE === false && this.jumpE === false) {
       
       timer = setTimeout(() => {

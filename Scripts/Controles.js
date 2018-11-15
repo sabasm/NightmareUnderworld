@@ -2,6 +2,7 @@ var LEFT = false;
 var RIGHT = false;
 var JUMP = false
 var inAir=false
+var readyToJump = true
 
 function controles() {
 
@@ -22,24 +23,27 @@ addEventListener('keydown', function (e) {
         LEFT = true
     if (e.keyCode === 68)
         RIGHT = true
-    if (e.keyCode === 32 && inAir===false && JUMP===false){
+    if (e.keyCode === 87 && inAir===false && JUMP===false && readyToJump===true){
         JUMP = true
         inAir=true
-        setTimeout(stopJump,55)
+        setTimeout(stopJump,50)
 
            /*se la llama a los 0.1 segundos*/
            }
     })
-    function stopJump(){
+     function stopJump(){
         
         
-        JUMP=false
-
-       }
+       JUMP=false
+        avoidJump()
+    }
+    function avoidJump(){
+        setTimeout(readyToJump=true,1000)
+    }
 addEventListener('keyup', function (e) {
     if (e.keyCode === 65)
         LEFT = false
     if (e.keyCode === 68)
         RIGHT = false
-    if (e.keyCode === 32){}
+    if (e.keyCode === 87){}
 })

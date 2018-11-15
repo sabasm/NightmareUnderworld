@@ -16,7 +16,7 @@ function Character(link, x, y) {
 
   this.draw = function () {
     this.canvasBounds()
-
+    this.enemyBounds()
     this.y += 5
 
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -49,6 +49,17 @@ function Character(link, x, y) {
         this.y > platforms[plat][1] - 32 && this.y < platforms[plat][1] - 16)
         this.y = platforms[plat][1] - 32
       inAir = false
+    }
+  }
+  this.enemyBounds = () => {
+    //X>=platforms 0 0 -32 x< = platforms (0 2 -1)*64 y> platforms 0 1 -32 y< platforms 0 1 - 16
+    for (var i = 0; i < liveEnemies.length; i++) {
+      if (this.x +16> liveEnemies[i][0] -4 && this.x+16 < liveEnemies[i][0] + 28 
+        && this.y +16> liveEnemies[i][1] -4 && this.y+16< liveEnemies[i][1] + 28){
+        console.log("EEEEEEENNNNNNNNDDDDDD IIIIITTTT")
+        gameOver()
+      }
+      
     }
   }
 
