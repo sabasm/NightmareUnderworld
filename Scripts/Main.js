@@ -46,6 +46,8 @@ var assets = {
   automaticRifle: "https://cdn.onlinewebfonts.com/svg/img_376373.png",
   sMG: "https://cdn.onlinewebfonts.com/svg/img_376373.png",
 
+  //audio
+  musique:"https://freesound.org/data/previews/435/435499_8874608-lq.mp3",
   //rare
   common:
     "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0009_gun0.png?alt=media&token=2daca942-b43b-4712-bfe3-46a1b7e360d3",
@@ -83,6 +85,7 @@ var platforms = [
 ];
 var liveEnemies = [];
 //instances
+var audio = new Audio(assets.musique);
 var char1 = new Character(assets.char1, c.width / 2 - 128, 128);
 var level = new Board();
 var enemy0 = new Enemy(256, 256, 0);
@@ -111,6 +114,7 @@ function start() {
   if (turn === 1) {
     player1 = 0;
   }
+  audio.play()
   player2 = 0;
   char1.x = 128;
   char1.y = 128;
