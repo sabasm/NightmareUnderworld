@@ -15,6 +15,8 @@ function ScoreBoard(){
         if (turn ===1)ctx.strokeText("Player 1", 2*c.width/3,128);
         if (turn ===2)ctx.strokeText("Player 2", 2*c.width/3,128);
         if (turn ===3 || turn === 0)ctx.strokeText("Let's play!", 2*c.width/3,128);
+      
+        this.drawWinner()
       }
 
       this.drawWinner = function (){

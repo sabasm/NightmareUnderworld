@@ -92,6 +92,21 @@ var enemy3 = new Enemy(256, 256, 3);
 var scores = new ScoreBoard();
 
 //main functions
+function hide() {
+  var x = document.getElementById("cover");
+  if (x.style.display === "none") {
+      x.style.display = "block";
+  } else {
+      x.style.display = "none";
+  }
+  var y = document.getElementById("c");
+  if (y.style.display === "none") {
+      y.style.display = "flex";
+      y.style.alignSelf="center";
+  }
+
+  setTimeout(start,2000)
+}
 function start() {
   if (turn === 1) {
     player1 = 0;
@@ -157,8 +172,6 @@ function gameOver() {
       }, 5000);
   }
 }
-
-start();
 
 //AUXILIAR FUNCTIONS
 function platformsGenerator() {
