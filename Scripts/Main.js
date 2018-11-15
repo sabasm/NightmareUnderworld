@@ -9,31 +9,31 @@ var frames = 0;
 var assets = {
   //level builders
   side:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0013_ground.png?alt=media&token=42c12b42-7ce4-45ff-9099-3ff5aabbf626",
+    "http://xmoto.tuxfamily.org/sprites/Textures/Textures/DarkDirt.jpg",
   platform1:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0012_platform.png?alt=media&token=9a757d24-0e59-4ceb-b4f0-dbd6b85c1cdd",
-  platform2:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0012_platform.png?alt=media&token=9a757d24-0e59-4ceb-b4f0-dbd6b85c1cdd",
-  platform3:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0012_platform.png?alt=media&token=9a757d24-0e59-4ceb-b4f0-dbd6b85c1cdd",
-  corner:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0013_ground.png?alt=media&token=42c12b42-7ce4-45ff-9099-3ff5aabbf626",
+    "http://nfgworld.com/grafx/games/grassy/Grassy-WBML32.png",
+    platform2:
+    "http://nfgworld.com/grafx/games/grassy/Grassy-WBML32.png",
+    platform3:
+    "http://nfgworld.com/grafx/games/grassy/Grassy-WBML32.png",
+    corner:
+    "http://xmoto.tuxfamily.org/sprites/Textures/Textures/DarkDirt.jpg",
 
   //Characters
   char1:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0011_char1.png?alt=media&token=4053b45a-700f-4de2-b156-37b965695ed5",
+    "https://vignette.wikia.nocookie.net/darksouls/images/6/64/Soul_of_a_Crystal_Sage.png/revision/latest?cb=20160615102453",
   char2:
     "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0011_char1.png?alt=media&token=4053b45a-700f-4de2-b156-37b965695ed5",
 
   //enemies
   tipo0:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0005_enemy0.png?alt=media&token=fcb365f6-1def-401a-9d2c-fa5fac6c98b5",
-  tipo1:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0004_enemy1.png?alt=media&token=e08f8bef-57f5-43c7-9aea-db8a2676e5f7",
-  tipo2:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0003_enemy2.png?alt=media&token=582527f6-edb9-41d3-b6e5-36296da6aa1d",
-  tipo3:
-    "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0002_enemy3.png?alt=media&token=11b56069-07ba-418d-806b-8a2a8f092581",
+    "https://cdn3.iconfinder.com/data/icons/halloween-29/64/ghost-512.png",
+    tipo1:
+    "https://cdn3.iconfinder.com/data/icons/halloween-29/64/ghost-512.png",
+    tipo2:
+    "https://cdn3.iconfinder.com/data/icons/halloween-29/64/ghost-512.png",
+    tipo3:
+    "https://cdn3.iconfinder.com/data/icons/halloween-29/64/ghost-512.png",
   //resources
   ammo:
     "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0000_bullets.png?alt=media&token=7ed6417d-f9f6-46b7-be01-5e955f336de4",
