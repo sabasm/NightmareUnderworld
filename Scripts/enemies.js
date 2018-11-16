@@ -99,7 +99,7 @@ function Enemy(x, y, tipo) {
     }
     //Jump to upper platform
     if (char1.y + char1.height+32 < this.y && this.inAirE === false && this.jumpE === false) {
-      
+      ghostJump.play()
       timer = setTimeout(() => {
         this.y -= 12
         this.jumpE=true

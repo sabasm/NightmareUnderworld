@@ -24,11 +24,11 @@ addEventListener('keydown', function (e) {
     if (e.keyCode === 68)
         RIGHT = true
     if (e.keyCode === 87 && inAir===false && JUMP===false && readyToJump===true){
+        
+        soulJump.play()
         JUMP = true
         inAir=true
         setTimeout(stopJump,50)
-
-           /*se la llama a los 0.1 segundos*/
            }
     })
      function stopJump(){

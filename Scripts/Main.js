@@ -1,6 +1,9 @@
 //canvas
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
+window.onload = function() {
+  ctx.drawImage(cover,0,0,c.width,c.height)
+};
 
 //variables
 var turn = 1;
@@ -46,8 +49,15 @@ var assets = {
   automaticRifle: "https://cdn.onlinewebfonts.com/svg/img_376373.png",
   sMG: "https://cdn.onlinewebfonts.com/svg/img_376373.png",
 
-  //audio
+  //audio y sfx
   musique:"https://freesound.org/data/previews/435/435499_8874608-lq.mp3",
+  ghostSfx:"https://freesound.org/data/previews/67/67091_931386-lq.mp3",
+  soulSfx:"https://freesound.org/data/previews/260/260614_4486188-lq.mp3",
+  gameOverLaught:"https://freesound.org/data/previews/132/132746_875457-lq.mp3",
+
+  //cover
+  cover:"https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/cover.png?alt=media&token=bb4f46ca-97f1-4e9b-a9cb-d50e5965a77a",
+
   //rare
   common:
     "https://firebasestorage.googleapis.com/v0/b/nightmare-underworld.appspot.com/o/Nightmare-Underworld-test-assets_0009_gun0.png?alt=media&token=2daca942-b43b-4712-bfe3-46a1b7e360d3",
@@ -85,14 +95,19 @@ var platforms = [
 ];
 var liveEnemies = [];
 //instances
+var gameOverSfx = new Audio(assets.gameOverLaught)
 var audio = new Audio(assets.musique);
-var char1 = new Character(assets.char1, c.width / 2 - 128, 128);
+var ghostJump=new Audio(assets.ghostSfx)
+var soulJump= new Audio (assets.SoulSfx)
+var char1 = new Character(assets.char1, c.width / 2 - 16, 128);
 var level = new Board();
-var enemy0 = new Enemy(256, 256, 0);
-var enemy1 = new Enemy(256, 256, 1);
-var enemy2 = new Enemy(256, 256, 2);
-var enemy3 = new Enemy(256, 256, 3);
+var enemy0 = new Enemy(c.width/5, c.height-128, 0);
+var enemy1 = new Enemy(2*c.width/5, 256, 1);
+var enemy2 = new Enemy(3*c.width/5, 256, 2);
+var enemy3 = new Enemy(4*c.width/5, 256, 3);
 var scores = new ScoreBoard();
+var cover = new Image ()
+cover.src=assets.cover
 
 //main functions
 function hide() {
@@ -110,22 +125,24 @@ function hide() {
 
   setTimeout(start,2000)
 }
+
+
 function start() {
-  if (turn === 1) {
-    player1 = 0;
-  }
+  // if(turn === 1 ){
+  //   player1 = 0
+  //   player2 = 0
+  // }
   audio.play()
-  player2 = 0;
-  char1.x = 128;
-  char1.y = 128;
-  enemy0.x = 256;
-  enemy0.y = 256;
-  enemy1.x = 256;
-  enemy1.y = 256;
-  enemy2.x = 256;
-  enemy2.y = 256;
-  enemy3.x = 256;
-  enemy3.y = 256;
+  char1.x = c.width/2-16;
+  char1.y = 256;
+  enemy0.x = 1*c.width/5;
+  enemy0.y = c.height - 128
+  enemy1.x = 2*c.width/5;
+  enemy1.y = c.height - 128
+  enemy2.x = 3*c.width/5;
+  enemy2.y = c.height - 128
+  enemy3.x = 4*c.width/5;
+  enemy3.y = c.height - 128
   interval = 0;
   frames = 0;
   score = 0;
@@ -135,6 +152,7 @@ function start() {
 function update() {
   frames++;
   ctx.clearRect(0, 0, c.width, c.height);
+  ctx.fillStyle="black";
   ctx.fillRect(0, 0, c.width, c.height);
   level.draw();
   platformsGenerator();
@@ -149,14 +167,17 @@ function update() {
     [enemy2.x, enemy2.y],
     [enemy3.x, enemy3.y]
   ];
-  scores.drawScore();
-  scores.drawWinner()
   // ammo.draw()
   // meds.draw()
   // gun.draw()
   controles();
+
+  scores.drawScore();
+
+  if(audio.currentTime===audio.duration)audio.play()
 }
 function gameOver() {
+  gameOverSfx.play()
   clearInterval(interval);
   if (turn === 1) {
     player1 = score;
@@ -170,11 +191,12 @@ function gameOver() {
   if (turn === 2) {
     player2 = score;
     console.log("2"+player2)
-    setTimeout(function() {
-        
     turn++;
-      }, 5000);
+    setTimeout(function() {
+
+      }, 2000);
   }
+
 }
 
 //AUXILIAR FUNCTIONS
